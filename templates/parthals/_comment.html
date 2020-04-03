@@ -1,0 +1,72 @@
+{% load static %}
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <br>
+
+           <div class="container col-md-8">
+               <div class="col-md-12 bg-white rounded">
+               <br>
+
+               <form method="POST" action="">
+                   {% csrf_token %}
+                   <label>Name:</label>
+               <input class="form-control" type="text" placeholder="name" name="name"/><br/>
+                   <label>Email:</label>
+                   <input class="form-control" type="email" placeholder="Email" name="email"/><br/>
+                   <label>Comment:</label>
+                   <textarea class="form-control" name="body" ></textarea><br>
+                   <input class="btn btn-outline-success flex-sm-row " type="submit">
+
+
+
+                   </form>
+
+                        <br><br>
+
+    {% if comments %}
+        {% for comment in comments %}
+
+
+                   <div class="media text-muted pt-3">
+          <img  class="mr-2 rounded-circle bg-warning" data-holder-rendered="true" style="width: 50px; height: 50px;">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong style="font-size: 14px;" class="d-block text-gray-dark">@username <img style="width: 15px; height: 15px;" src="{% static 'img/verify.png' %}"></strong>
+              <big style="font-size: 15px">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</big>
+          </p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No Comments Available</p>
+    {% endif %}
+{#                            <div class="media text-muted pt-3">#}
+{#          <img  class="mr-2 rounded-circle bg-danger"  data-holder-rendered="true" style="width: 50px; height: 50px;">#}
+{#          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">#}
+{#            <strong style="font-size: 14px;" class="d-block text-gray-dark">@username </strong>#}
+{#              <big style="font-size: 15px">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</big>#}
+{#          </p>#}
+{#        </div>#}
+
+
+{#                            <div class="media text-muted pt-3">#}
+{#          <img  class="mr-2 rounded-circle bg-success"  data-holder-rendered="true" style="width: 50px; height: 50px;">#}
+{#          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">#}
+{#            <strong style="font-size: 14px;" class="d-block text-gray-dark">@Username</strong>#}
+{#              <big style="font-size: 15px">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</big>#}
+{#          </p>#}
+{#        </div>#}
+{##}
+{##}
+{#                                      <div class="media text-muted pt-3">#}
+{#          <img  class="mr-2 rounded-circle bg-info"  data-holder-rendered="true" style="width: 50px; height: 50px;">#}
+{#          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">#}
+{#            <strong style="font-size: 14px;" class="d-block text-gray-dark">@Username</strong>#}
+{#              <big style="font-size: 15px">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</big>#}
+{#          </p>#}
+{#        </div>#}
+
+
+      </div>
+
+
+                   </div><br><br>
